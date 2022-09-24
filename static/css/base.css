@@ -1,13 +1,32 @@
+/* Variables
+========================================*/
+:root {
+  /*colors*/
+  --jet: #343434;
+  --imperial-red: #e63946;
+}
+
+/* body body
+========================================*/
 body {
   min-height: 75rem;
   padding-top: 4.5rem;
 }
 
-h1 {
-  color: red;
+.header-cover {
+  position: relative;
+  top: -20px;
+  width: 100%;
+  height: 180px;
+  background-color: black;
 }
 
-img.bookcover {
-  height: 300px;
-  width: auto;
+.card-title,
+.card-title a {
+  text-decoration: none;
+  color: var(--jet);
+}
+
+.card-search {
+  border: none;
 }

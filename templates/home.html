@@ -3,7 +3,35 @@
 
 {% block title %}Home{% endblock title %}
 
+{% block header-cover %}
+  <div class="header-cover h-100 p-5 text-white bg-dark">
+    {% if user.is_authenticated %}
+    <h2>Hello, @{{ user.username }}</h2>
+    {% else %}
+    <h2>Hello</h2>
+    {% endif %}
+    <p>Welcome to the bookstore, here you will find a wide variety of books.</p>
+    <a class="btn btn-outline-light" href="{% url "book_list" %}" type="button">View all books</a>
+  </div>
+{% endblock header-cover %}
+
 {% block content %}
-  <h1>This is our home page</h1>
-  <img class="bookcover" src="{% static "images/dfp.jpg" %}" alt="" >
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{% static "images/cb1.jpg" %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static "images/cb2.jpeg" %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 {% endblock content %}

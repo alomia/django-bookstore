@@ -2,10 +2,25 @@
 
 {% block title %}Books{% endblock title %}
 
+{% block header-cover %}
+  <div class="header-cover h-100 p-5 text-white bg-dark">
+    <p class="text-white fs-1 fw-bold">New <span class="fw-normal">Books</span></p>
+  </div>
+{% endblock header-cover %}
+
 {% block content %}
-	{% for book in book_list %}
-	<div>
-		<h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
-	</div>
-	{% endfor %}
+  <div class="card-container row row-cols-1 row-cols-md-3 g-4">
+    {% for book in book_list %}
+    <div class="col">
+      <div class="card">
+        <img src="{{ book.cover.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a class="card-title fs-5" href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+          <p class="card-text fw-light">Author: <small class="text-muted">{{ book.author }}</small></p>
+          <p class="card-text fw-bolder">${{ book.price }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 {% endblock content %}
